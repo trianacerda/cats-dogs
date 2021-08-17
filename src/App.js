@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+import { Component } from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import './App.css';
+import Cats  from './Cats.js';
+import Dogs  from './Dogs.js';
+import Home  from './Home.js';
+import Header from './Header.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render (){
+    return (
+    <section className="cdApp">
+      <BrowserRouter>
+        <Header />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/cats" component={Cats} />
+            <Route exact path="/dogs" component={Dogs} />
+          </Switch>
+      </BrowserRouter>
+    </section>
+    );
+  }
 }
 
 export default App;
